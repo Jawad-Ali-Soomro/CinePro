@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  align-items: start;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+}
+
+.card_now_playing {
+  width: 100vw;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  position: relative;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+}
+
+.card img {
+  width: 300px;
+  height: 450px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+
+.card img:hover {
+  transform: translateY(-20px);
+}
+
+.card_now_playing button {
+  width: 300px;
+  height: 70px;
+  background: rgba(241.5, 199.5, 52.5, 1);
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #333;
+  cursor: pointer;
+  bottom: 0;
+  border-radius: 10px;
+}
+
+.card_now_playing h1 {
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 40px;
+  background: linear-gradient(to right, #f32170, #ff6b08, s#eedd44);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.main-movie {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.main-movie .left {
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-movie .left img {
+  width: 300px;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.main-movie .right {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.main-movie .right h1 {
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+}
+
+.main-movie .right h1 span {
+  font-weight: 300;
+}
+
+.main-movie .right p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 700px;
+}
+
+.main-movie .right p section {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(241.5, 199.5, 52.5, 1);
+  border-radius: 20px;
+}
+
+.main-movie .top {
+  width: 100%;
+}
+
+.main-movie .bottom {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.bottom img {
+  width: 350px;
+  height: 450px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
