@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 
 const Movie = () => {
   const { id } = useParams();
@@ -32,7 +33,7 @@ const Movie = () => {
       }, 1000);
     };
   }, []);
-  let first10Items = movieImages.slice(0, 6);
+  let first10Items = movieImages.slice(0, 8);
   return (
     <>
       {movieData !== undefined ? (
@@ -65,7 +66,15 @@ const Movie = () => {
           </div>
         </div>
       ) : (
-        <h1>Loding...</h1>
+        <div className="loader">
+          <PulseLoader
+            color={"rgba(241.5, 199.5, 52.5, 1)"}
+            loading={true}
+            size={50}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       )}
     </>
   );
