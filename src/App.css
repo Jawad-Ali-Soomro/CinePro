@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Roboto Slab;
 }
 
 .flex {
@@ -9,179 +10,191 @@
   align-items: center;
 }
 
-.left {
-  align-items: start;
-}
-
-.justify-around {
-  justify-content: space-around;
-}
-
 .justify-between {
   justify-content: space-between;
 }
 
-.col {
-  flex-direction: column;
-}
-
-.banner {
+.header {
   width: 100%;
-  height: 100vh;
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-}
-
-.banner img {
-  width: 100%;
-  height: 100vh;
-}
-
-.banner .content {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
+  position: fixed;
+  height: 15vh;
   top: 0;
   left: 0;
-  z-index: 1;
-  backdrop-filter: blur(2px);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), black);
+  z-index: 10;
 }
 
-.content h1 {
-  font-size: 2.5rem;
-  font-family: Agbalumo;
-  color: white;
+.header .logo {
+  padding-left: 100px;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 900;
   text-transform: uppercase;
+  color: white;
 }
 
-.content h2 {
+.navs {
+  margin-right: 100px;
+}
+
+.navs ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navs ul li {
+  list-style: none;
+}
+
+.navs ul li a {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.navs ul li .icon {
   font-size: 1.5rem;
-  max-width: 80%;
-  font-family: Agbalumo;
-  color: rgba(255, 255, 255, 0.411);
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.content .icon {
-  position: absolute;
   color: white;
-  font-size: 3rem;
-  bottom: 50px;
-  animation: animate 1s infinite linear;
+  cursor: pointer;
 }
 
-@keyframes animate {
-  50% {
-    transform: translateY(20px);
-  }
+body {
+  background: black;
 }
 
-.content .input-sect {
-  background: rgba(255, 255, 255, 0.2);
-  width: 670px;
-  height: 70px !important;
+.hero-section {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  margin-top: 20px;
+} */
+
+.swiper-slide img {
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
 }
 
-.content .input-sect .icon {
-  padding: 18px 18px;
-  cursor: pointer;
-  background: rgba(241.5, 199.5, 52.5, 1);
+.swiper-slide .content {
+  position: absolute;
+  width: 100%;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), black);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+.content .main-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  font-size: 2rem;
 }
 
-.content .input-sect input {
-  width: 580px;
-  height: 70px !important;
-  background: transparent;
-  padding-left: 20px;
-  border: none;
-  border-radius: 25px;
-  outline: none;
+.main-content h1 {
+  font-size: 3rem;
+  text-align: center;
+  max-width: 80%;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 0 0 10px white;
+}
+
+/* .main-content p {
+  max-width: 70%;
   font-size: 1.2rem;
-  font-family: Agbalumo;
-  color: white;
-}
+  margin-top: 10px;
+} */
 
-.card_now_playing {
+.upcoming-sect {
   width: 100vw;
-  gap: 20px;
+  display: flex;
   flex-wrap: wrap;
-  padding-bottom: 100px;
-  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
   position: relative;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
-.card {
-  width: 250px;
+.upcoming-sect h1 {
+  position: absolute;
+  top: 50px;
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.card img {
-  width: 250px;
-  height: 350px;
+.upcoming-main img {
+  width: 220px;
+  height: 300px;
   cursor: pointer;
-  margin-bottom: 50px;
+  margin-top: 50px;
   transition: 0.3s;
   border-radius: 10px;
 }
 
-.card img:hover {
+.upcoming-main img:hover {
   transform: translateY(-20px);
 }
 
-.card_now_playing button {
+.btn-explore {
   width: 300px;
-  height: 70px;
-  background: rgba(241.5, 199.5, 52.5, 1);
+  height: 60px;
+  position: absolute;
+  bottom: 50px;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
   color: white;
-  cursor: pointer;
-  bottom: 0;
-  border-radius: 10px;
-  padding: 0px 30px;
-  transition: 0.3s;
-  position: absolute;
-  font-family: "Agbalumo";
-}
-
-.card_now_playing button:hover {
-  padding: 0px 20px;
-}
-
-.card_now_playing h1 {
-  position: absolute;
-  top: 50px;
-  text-transform: uppercase;
   font-weight: 900;
-  font-size: 3rem;
-  color: #333;
-  font-family: "Agbalumo";
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .main-movie {
   width: 100%;
   height: 100vh;
-  max-height: 100vh;
+  display: flex;
+  color: white;
+  background-size: cover !important;
+}
+
+.main-movie .top {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .main-movie .left {
   width: 40%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .main-movie .left img {
@@ -192,60 +205,25 @@
 
 .main-movie .right {
   width: 60%;
-  height: 100vh;
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
   align-items: start;
   gap: 20px;
 }
 
-.main-movie .right h1 {
-  display: flex;
-  flex-direction: column;
-  font-weight: 900;
-}
-
-.main-movie .right h1 span {
-  font-weight: 300;
-}
-
 .main-movie .right p {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  max-width: 700px;
-}
-
-.main-movie .right p section {
-  padding: 10px 30px;
-  display: flex;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  background: rgba(241.5, 199.5, 52.5, 1);
-  border-radius: 20px;
 }
 
-.main-movie .top {
-  width: 100%;
-}
-
-.main-movie .bottom {
-  width: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-
-.bottom img {
-  width: 250px;
-  height: 350px;
-  margin-top: 50px;
-  border-radius: 20px;
+.main-movie .right section {
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
 }
 
 .loader {
@@ -254,42 +232,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.card_main {
-  padding-top: 50px;
-}
-
-.btn-icon {
-  width: 50px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(241.5, 199.5, 52.5, 1);
-  height: 50px;
-  color: white;
-  padding: 20px 20px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.header {
-  width: 100%;
-  height: 15vh;
-  background: rgba(241.5, 199.5, 52.5, 1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  font-family: Agbalumo;
-  color: white;
-}
-
-.header .logo {
-  margin-left: 100px;
-}
-
-.logo a {
-  text-decoration: none;
-  font-size: 2.5rem;
-  color: white;
 }

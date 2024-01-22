@@ -27,17 +27,18 @@ const Movie = () => {
         .then((result) => setMovieImages(result.data.backdrops));
 
     return () => {
-      setInterval(() => {
-        getData();
-        getImages();
-      }, 1000);
+      // setInterval(() => {}, 1000);
+      getData();
     };
   }, []);
   let first10Items = movieImages.slice(0, 8);
   return (
     <>
       {movieData !== undefined ? (
-        <div className="main-movie flex justify-between col">
+        <div
+          className="main-movie flex justify-between col"
+          style={{ background: `url(${imgUrl}/${movieData.backdrop_path})` }}
+        >
           <div className="top flex">
             <div className="left flex">
               <img src={`${imgUrl}/${movieData.poster_path}`} alt="" />
@@ -58,11 +59,6 @@ const Movie = () => {
                 <p style={{ maxWidth: "600px" }}>{movieData.overview}</p>
               </div>
             </div>
-          </div>
-          <div className="bottom flex">
-            {first10Items.map((item) => {
-              return <img src={`${imgUrl}/${item.file_path}`} alt="" />;
-            })}
           </div>
         </div>
       ) : (
