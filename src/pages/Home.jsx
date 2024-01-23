@@ -4,14 +4,18 @@ import "../App.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { AiFillPlayCircle, AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+const needDominantBaselineFix = true;
 
 const Home = () => {
   const navigate = useNavigate();
   const api_key = "c3f04fb91ba5e5d7b38df22f9c846a2e";
-  let [page, setPage] = useState(1);
+  const min = 1;
+  const max = 10;
+  let page = Math.floor(Math.random() * (max - min + 1)) + min;
   const now = "now_playing";
   const popular = "popular";
   const upcoming = "upcoming";
@@ -119,11 +123,16 @@ const Home = () => {
           {now_playing.map((item) => {
             return (
               <>
-                <SwiperSlide key={item.id}>
+                <SwiperSlide
+                  style={{ cursor: "pointer" }}
+                  key={item.id}
+                  onClick={() => navigate(`/movie/${item.id}`)}
+                >
                   <img src={`${imgUrl}/${item.backdrop_path}`} alt="" />
                   <section className="content" key={item.id}>
                     <div className="main-content col">
                       <h1>{item.title}</h1>
+                      <p>{item.overview}</p>
                     </div>
                   </section>
                 </SwiperSlide>
@@ -142,6 +151,20 @@ const Home = () => {
                 alt={`${item.title}`}
                 onClick={() => navigate(`/movie/${item.id}`)}
               />
+              <section>
+                {
+                  <CircularProgressbar
+                    styles={{
+                      text: {
+                        fill: "white",
+                        fontSize: "20px",
+                      },
+                    }}
+                    value={Math.round(item.vote_average * 10)}
+                  />
+                }
+                <p>{Math.round(item.vote_average * 10)}</p>
+              </section>
             </div>
           );
         })}
@@ -157,6 +180,20 @@ const Home = () => {
                 alt={`${item.title}`}
                 onClick={() => navigate(`/movie/${item.id}`)}
               />
+              <section>
+                {
+                  <CircularProgressbar
+                    styles={{
+                      text: {
+                        fill: "white",
+                        fontSize: "20px",
+                      },
+                    }}
+                    value={Math.round(item.vote_average * 10)}
+                  />
+                }
+                <p>{Math.round(item.vote_average * 10)}</p>
+              </section>
             </div>
           );
         })}
@@ -172,6 +209,20 @@ const Home = () => {
                 alt={`${item.title}`}
                 onClick={() => navigate(`/movie/${item.id}`)}
               />
+              <section>
+                {
+                  <CircularProgressbar
+                    styles={{
+                      text: {
+                        fill: "white",
+                        fontSize: "20px",
+                      },
+                    }}
+                    value={Math.round(item.vote_average * 10)}
+                  />
+                }
+                <p>{Math.round(item.vote_average * 10)}</p>
+              </section>
             </div>
           );
         })}
