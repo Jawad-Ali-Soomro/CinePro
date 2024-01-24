@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
-import { AiFillPlayCircle, AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import Header from "../Header";
 const needDominantBaselineFix = true;
 
 const Home = () => {
@@ -27,6 +27,7 @@ const Home = () => {
   const [now_popular, setnow_popular] = useState([]);
   const [now_top_rated, setnow_top_rated] = useState([]);
   const [scrolling, setScrolling] = useState();
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     const get_now_playing = async () => {
@@ -57,59 +58,18 @@ const Home = () => {
         )
         .then((res) => setnow_top_rated(res.data.results));
     };
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      setInterval(() => {
-        get_upcoming();
-        get_now_playing();
-        get_popular();
-        get_top();
-      }, 1000);
+      get_upcoming();
+      get_now_playing();
+      get_popular();
+      get_top();
+      setInterval(() => {}, 1000);
     };
   }, []);
   return (
     <div className=" col">
-      <div
-        className="header flex  justify-between"
-        style={{
-          background: `${scrolling == true ? "rgba(0,0,0,.5)" : "transparent"}`,
-        }}
-      >
-        <div className="logo flex">
-          <a href="" className="flex">
-            Cinepr
-            <AiFillPlayCircle />
-          </a>
-        </div>
-        <div className="navs">
-          <ul>
-            <li>
-              <a href="">Movies</a>
-            </li>
-            <li>
-              <a href="">SHows</a>
-            </li>
-            <li>
-              <a href="">popular</a>
-            </li>
-            <li>
-              <a href="">upcoming</a>
-            </li>
-            <li>
-              <AiOutlineSearch className="icon" />
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Header />
       <div className="hero-section">
         <Swiper
           autoplay={{

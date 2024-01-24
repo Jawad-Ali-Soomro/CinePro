@@ -9,13 +9,13 @@ const Movie = () => {
   const api_key = "c3f04fb91ba5e5d7b38df22f9c846a2e";
   const imgUrl = "https://image.tmdb.org/t/p/original";
   const [movieImages, setMovieImages] = useState([]);
-
+  const { category } = useParams();
   const [movieData, setMovieData] = useState();
   useEffect(() => {
     const getData = async () => {
       await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${api_key}`
+          `https://api.themoviedb.org/3/${category}/${id}?language=en-US&api_key=${api_key}`
         )
         .then((res) => setMovieData(res.data));
     };
@@ -27,11 +27,9 @@ const Movie = () => {
         .then((result) => setMovieImages(result.data.backdrops));
 
     return () => {
-      // setInterval(() => {}, 1000);
       getData();
     };
   }, []);
-  let first10Items = movieImages.slice(0, 8);
   return (
     <>
       {movieData !== undefined ? (
