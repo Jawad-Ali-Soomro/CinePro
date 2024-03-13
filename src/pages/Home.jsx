@@ -4,11 +4,10 @@ import "../App.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import Header from "../Header";
-const needDominantBaselineFix = true;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -74,10 +73,9 @@ const Home = () => {
         <Swiper
           autoplay={{
             delay: 1500,
-            disableOnInteraction: false,
           }}
           pagination={true}
-          modules={[Autoplay]}
+          modules={[Autoplay, Pagination]}
           className="mySwiper"
         >
           {now_playing.map((item) => {
